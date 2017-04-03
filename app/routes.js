@@ -24,8 +24,10 @@ module.exports = function(app,passport){
         failureFlash: true
     }));
 
-    app.get('/profile',function(req,res){
-        res.render('profile.ejs',{user: req.user});
+    app.get('/profile',function(req,res,done){
+        if(req.user.local.entity === 'Bombeiro')
+            res.render('profile.ejs',{user: req.user});
+        else return done(null, false,req.flash('loginMessage','Oops! Wrong password'));
     });
 
     app.get('/logout',function(req,res){
