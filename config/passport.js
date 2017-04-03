@@ -16,7 +16,7 @@ module.exports = function(passport) {
 
     /* LOCAL SIGNUP*/
     
-    passport.use('local-signup', new LocalStrategy({
+    passport.use('local-registration', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
         entityField: 'entity',
@@ -29,7 +29,7 @@ module.exports = function(passport) {
                  return done(err);
                 
                 if(user){
-                    return done(null,false,req.flash('signupMessage','That emai is already taken.'));
+                    return done(null,false,req.flash('registrationMessage','That emai is already taken.'));
                 }else {
                     var newUser = new User();
 

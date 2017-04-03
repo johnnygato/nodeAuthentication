@@ -9,25 +9,25 @@ module.exports = function(app,passport){
     });
 
     app.post('/login',passport.authenticate('local-login',{
-        successRedirect: '/profile',
+        successRedirect: '/registration',
         failureRedirect: '/login',
         failureFlash: true
     }));
 
-    app.get('/signup',function(req,res){
-        res.render('signup.ejs',{message: req.flash('signupMessage')});
+    app.get('/registration',function(req,res){
+        if(req.user.local.entity === 'Admin')
+            res.render('registration.ejs',{message: req.flash('signupMessage')});
+        else res.render('invalidEntity.ejs');
     });
 
-    app.post('/signup',passport.authenticate('local-signup',{
+    app.post('/registration',passport.authenticate('local-registration',{
         successRedirect: '/profile',
-        failureRedirect: '/signup',
+        failureRedirect: '/registration',
         failureFlash: true
     }));
 
     app.get('/profile',function(req,res,done){
-        if(req.user.local.entity === 'Bombeiro')
-            res.render('profile.ejs',{user: req.user});
-        else return done(null, false,req.flash('loginMessage','Oops! Wrong password'));
+        res.render('profile.ejs',{user: req.user});
     });
 
     app.get('/logout',function(req,res){

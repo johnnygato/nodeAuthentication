@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>CGI Admin Panel</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
     <style>
         body {padding-top: 80px;}
@@ -10,39 +10,42 @@
 <body>
     <div class="container">
         <div class="col-sm-6 col-sm-offset-3">
-            <h1><span> Signup </span></h1>
+            <h1 class="text-center"><span> Registration </span></h1>
 
             <% if(message.length > 0) { %>
                 <div class = "alert alert-danger"> <%= message %></div>
             <% } %>
 
+            <hr>
+
             <form action"/signup" method="post">
                 <div class="form-group">
-                    <lable> Email </lable>
+                    <lable><strong> Email </strong></lable>
                     <input type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                    <lable> Password </lable>
+                    <lable><strong> Password </strong></lable>
                     <input type="password" class="form-control" name="password">
                 </div>
         
                 <div class="form-group">
-                <label>Entity:</label>
-                <select class="form-control" name="entity">
-                    <option value="Bombeiro">Bombeiro</option>
-                    <option value="Policia">Policia</option>
-                    <option value="Via Publica">Via Publica</option>
-                </select>
+                    <label> Entity </label>
+                    <select class="form-control" name="entity">
+                        <option value="Bombeiro">Bombeiro</option>
+                        <option value="Policia">Policia</option>
+                        <option value="Via-Publica">Via-Publica</option>
+                        <option value="Admin">Admin</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-warning btn-lg"> Signup </button>
+                <button type="submit" class="btn btn-warning btn-lg"> Regist </button>
             </form>
 
             <hr>
 
-            <p> Already have an account? <a href="/login"> Login </a></p>
-            <p> Or go <a href="/"> Home </a>.</p>
+            <p> Back <a href="/"> Home </a>.</p>
 
         </div>
+    </div>
     </div>
 </body>
 </html>

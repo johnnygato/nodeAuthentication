@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>CGI Admin Panel</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
     <style>
         body {padding-top: 80px;}
@@ -10,11 +10,13 @@
 <body>
     <div class="container">
         <div class="col-sm-6 col-sm-offset-3">
-            <h1><span> Login </span></h1>
+            <h1 class='text-center'><span> Login </span></h1>
 
             <% if(message.length > 0) { %>
                 <div class = "alert alert-danger"> <%= message %></div>
             <% } %>
+
+            <hr>
 
             <form action"/login" method="post">
                 <div class="form-group">
@@ -30,8 +32,7 @@
 
             <hr>
 
-            <p> Need an account? <a href="/signup"> Signup </a></p>
-            <p> Or go <a href="/"> Home </a>.</p>
+            <p> Back <a href="/"> Home </a>.</p>
 
         </div>
     </div>

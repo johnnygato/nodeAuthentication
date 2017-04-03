@@ -22,7 +22,7 @@ app.use(bodyParser());
 
 app.set('view engine','ejs');
 
-app.use(session({secret: "ilovenode"}));
+app.use(session({secret: "CGI"}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
