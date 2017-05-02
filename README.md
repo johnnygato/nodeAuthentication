@@ -1,1 +1,1 @@
-# nodeAuthentication
+# Node Local,Facebook,Twitter,Google Authentication following Scotch.io tuturial
